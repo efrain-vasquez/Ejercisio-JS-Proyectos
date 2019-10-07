@@ -1,6 +1,6 @@
 14. volver a crear Giphy con su propioAPI
 
-objetivo de: crear una aplicación web que utilice una entrada de búsqueda y la API de Giphy para mostrar giphs en una página.
+objetivo: crear una aplicación web que utilice una entrada de búsqueda y la API de Giphy para mostrar giphs en una página.
 Una vez que domine la manipulación del DOM y trabaje con JavaScript o jQuery vanilla, le recomiendo que comience a aprender a usar datos de plantilla y mostrarlos en el DOM.
 
 
