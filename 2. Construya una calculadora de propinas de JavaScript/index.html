@@ -1,42 +1,36 @@
 <!DOCTYPE html>
-<html>
-    <body> 
-    <!-- This is to be able to identify the element and manipulate it later        -->
-    <div id="clock"></div>
-    <!-- this is so i can use javascript on HTML -->
-    <script type="text/javascript">
-      //this function add a zero to the time if it is a single digit
-      function paddedFunction(i) {
-        if (i < 10) {
-        i = "0" + i;
-        }
-        return i;
-      }
-      //this function gives us the time using native javascript methods
-      function displayClock() {
-        var time = new Date();
-        var hours = paddedFunction(time.getHours());
-        var minutes = paddedFunction(time.getMinutes());
-        var seconds = paddedFunction(time.getSeconds()); 
-        //this conditional statements change the clock from a 
-        //24 hour time schedule to a 12 hour time schedule
-        if (hours === 0) {
-          hours = 12
-        } else {
-          if (hours > 12) {
-            hours = hours - 12;
-          }
-        }
-        //set all 3 of these variables to one variable
-        var time = hours + ":" + minutes + ":" + seconds;
-        //To access an HTML element use document.getElementById:
-        //The innerHTML property defines the HTML content:
-        document.getElementById("clock").innerText = time;
-        //this method calls the displayClock function once every second which allows the clock to run
-        setTimeout(displayClock, 1000);
-      }
-      //I envoke the function so it displays the clock
-      displayClock();
-    </script>
-  </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <header>
+      <h1>Tip Calculator</h1>
+  </header>
+    Bill Total Without Tip: 
+    <input id="originalBill" type="number"></input>
+    <br />
+    Percent You Want To Tip:
+    <select id="tipPercent">
+        <option value="10">10%</option>
+        <option value="15">15%</option>
+        <option value="20">20%</option>
+        <option value="25">25%</option>
+        <option value="30">30%</option>
+    </select>
+    <br />
+    <button onclick="calculateTip()">Calculate Tip</button>
+  <div id="total">test</div>
+  <script type="text/javascript">
+    function calculateTip() {
+      var originalAmount =  parseInt(document.getElementById("originalBill").value);
+      var tip =  parseInt(document.getElementById("tipPercent").value)*.01;
+      var totalWithTip = (originalAmount * tip) + originalAmount
+      document.getElementById("total").innerText = "Total Including Tip: " + totalWithTip;
+    }
+  </script>
+</body>
 </html>

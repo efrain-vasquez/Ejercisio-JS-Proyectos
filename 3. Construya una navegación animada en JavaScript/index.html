@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <meta charset="utf-8">
+  <title>Menu toggle</title>
+  <style>
+    .menu{
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+        <div class="menuToggle">Toggle Menu</div>
+        
+        <nav class="menu">
+          <ul>
+            <li>Home</li>
+            <li>About</li>
+            <li>Contact</li>
+          </ul>
+        </nav>
+        
+        <script>
+          //The querySelector() method returns the first element that matches a specified CSS selector(s) in the document.
+          const menu = document.querySelector('.menu');
+          const menuToggle = document.querySelector('.menuToggle');
+          // Use the element.addEventListener() method to attach an event handler to a specified element.
+          // Do not use the "on" prefix. For example, use "click" instead of "onclick".
+          menuToggle.addEventListener("click", function(event) {
+            // The preventDefault() method cancels the event if it is cancelable, 
+            // meaning that the default action that belongs to the event will not occur.
+            // Prevents the browsers default behaviour (such as opening a link), 
+            // but does not stop the event from bubbling up the DOM.
+            // The Event interface's preventDefault() method tells the user agent that if the event does not get explicitly handled, 
+            // its default action should not be taken as it normally would be.
+            event.preventDefault()
+            // getComputedStyle() is always called on the window, 
+            // and the element is passed in as an argument. You get back an object of properties.
+            if (window.getComputedStyle(menu).display === 'block') {
+              // Hide an element
+              // var hide = function (elem) {
+              // 	elem.style.display = 'none';
+              // };
+              menu.style.display = 'none';
+            } else  {
+              // Show an element
+              // var show = function (elem) {
+              // 	elem.style.display = 'block';
+              // };
+              menu.style.display = 'block';
+            }
+          });
+        </script>
+        </body>
+</html>
+
+<!doctype html>
+
+
+
+<!-- 
+//Show an element
+var show = function (elem) {
+	elem.style.display = 'block';
+};
+
+//Hide an element
+var hide = function (elem) {
+	elem.style.display = 'none';
+};
+
+//Toggle element visibility
+var toggle = function (elem) {
+
+	//If the element is visible, hide it
+	if (window.getComputedStyle(elem).display === 'block') {
+		hide(elem);
+		return;
+	}
+
+	// Otherwise, show it
+	show(elem);
+
+}; -->
+
+
+
+<!-- 
+Getting the browser-rendered style #
+We want a way to get the styles that the browser is rendering on the element.
+
+That could be an inline style. It could also be in an external stylesheet, or just the browser default for an element. Whatever the case, we want to the true CSS properties that the browser is using for the element.
+
+For that, we use getComputedStyle().
+
+getComputedStyle() is always called on the window, and the element is passed in as an argument. You get back an object of properties. -->
+
+
+<!-- Note: I should have mentioned in this post but didn’t: getComputedStyle() can only be used for getting styles, not setting them. -->
+
+
+<!-- function switchVisible() {
+    if (document.getElementById('Div1')) {
+
+        if (document.getElementById('Div1').style.display == 'none') {
+            document.getElementById('Div1').style.display = 'block';
+            document.getElementById('Div2').style.display = 'none';
+        }
+        else {
+            document.getElementById('Div1').style.display = 'none';
+            document.getElementById('Div2').style.display = 'block';
+        }
+    }
+}
+#Div2 {
+display: none;
+}
+<div id="Div1">Div 1</div>
+<div id="Div2">Div 2</div>
+
+<input id="Button1" type="button" value="Click" onclick="switchVisible();"/> -->
